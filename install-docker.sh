@@ -17,9 +17,9 @@ apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-keys 58118E89
 echo "deb https://apt.dockerproject.org/repo $ID-$VERSION_CODENAME main" | sudo tee /etc/apt/sources.list.d/docker.list
 apt-get update
 
-apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
+apt-get -y install linux-image-extra-$(uname -r) linux-image-extra-virtual
 
-apt-get install docker-engine
+apt-get -y install docker-engine
 
 service docker start
 
