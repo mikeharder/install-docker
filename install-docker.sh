@@ -1,5 +1,11 @@
 #!/bin/sh
 
+if [ $(id -u) != "0" ]; then
+    echo "Please run this script with sudo:"
+    echo "sudo $0 $*"
+    exit 1
+fi
+
 # echo on
 set -x
 
@@ -18,4 +24,4 @@ apt-get install docker-engine
 service docker start
 
 groupadd docker
-usermod -aG docker $USER
+usermod -aG docker $SUDO_USER
